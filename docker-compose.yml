@@ -13,3 +13,5 @@ services:  # Serviços que serão orquestrados
       - 19001:19001  # Porta para o Expo
       - 19002:19002  # Porta para o Expo
       - 8081:8081    # Porta padrão do servidor React Native (Expo)
+    networks:
+      - appExpo  # Define que o contêiner estará na rede 'appExpo'
