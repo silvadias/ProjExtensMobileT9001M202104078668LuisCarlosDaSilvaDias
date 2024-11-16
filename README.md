@@ -1,4 +1,51 @@
 
+# Tag 1.1 - Inicialização do npm e Configuração do `package.json`
+
+Nesta etapa, damos continuidade ao desenvolvimento da aplicação iniciado na **Tag 1.0**, avançando com a configuração do npm e a descrição inicial do projeto no arquivo `package.json`. Além disso, configuramos a persistência de dados para serviços e dependências locais.
+
+## Configurações Realizadas
+
+### 1. Inicialização do Ambiente Docker
+- Os serviços Docker foram iniciados, criando o volume **`node_modules`**, que garante a persistência das dependências instaladas localmente.
+- O arquivo `docker-compose.yml` foi configurado para que a pasta **`app`** seja montada dentro do container.
+
+### 2. Acesso ao Container
+O acesso ao container foi realizado com o seguinte comando:
+```bash
+docker exec -it nodeExpo sh
+```
+Este comando permite abrir um terminal interativo dentro do container chamado `nodeExpo`, possibilitando a execução de comandos no ambiente configurado.
+
+### 3. Execução do Comando `npm init`
+Dentro do container, foi executado o comando:
+```bash
+npm init
+```
+Este comando iniciou um processo interativo no terminal, solicitando informações para configurar o arquivo `package.json`. Os dados fornecidos incluem:
+- **Nome do projeto**;
+- **Versão inicial**;
+- **Descrição**;
+- **Autor**.
+
+Caso prefira uma configuração padrão, o comando pode ser executado com a flag `-y`, como mostrado abaixo:
+```bash
+npm init -y
+```
+
+### 4. Persistência de Dependências e Serviços Locais
+Com a configuração inicial concluída, o serviço npm foi devidamente ativado, permitindo a instalação de novos pacotes e serviços recomendados pela equipe do React.
+
+A persistência é garantida pelo volume **`node_modules`**, que sincroniza as dependências instaladas com a pasta do projeto no host. Isso assegura que qualquer instalação futura de pacotes locais seja mantida no ambiente de desenvolvimento.
+
+## Resultado
+Com esta etapa, o ambiente está preparado para:
+- Adicionar novas dependências ao projeto com o comando `npm install`.
+- Garantir que as configurações do projeto sejam refletidas no arquivo `package.json`.
+
+A **Tag 1.1** marca a consolidação da base para a instalação de bibliotecas e serviços adicionais, dando suporte ao crescimento contínuo do projeto.
+
+---
+
 # Tag 1.0 - Ambiente Inicial
 
 ## Descrição
