@@ -17,3 +17,9 @@ services:  # Serviços que serão orquestrados
       - appExpo  # Define que o contêiner estará na rede 'appExpo'
     command: >  # Comando para manter o contêiner rodando
       sh -c "tail -f /dev/null"
+jdk:  # Serviço que usa a imagem OpenJDK
+    image: openjdk:17-jdk
+    container_name: jdk
+    working_dir: /app
+    networks:
+      - appExpo  # Define que o contêiner estará na rede 'appExpo'
