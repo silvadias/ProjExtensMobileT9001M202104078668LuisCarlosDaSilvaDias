@@ -1,1 +1,10 @@
 version: '3.8'
+
+services:  # Serviços que serão orquestrados
+  node:  # Serviço que usa a imagem Node.js
+    image: node:22.11.0
+    container_name: nodeExpo
+    working_dir: /app
+    volumes:
+      - ./:/app  # Mapeia o diretório atual para o diretório /app no contêiner
+      - ./node_modules:/app/node_modules  # Evita que o diretório node_modules local sobrescreva o contêiner
