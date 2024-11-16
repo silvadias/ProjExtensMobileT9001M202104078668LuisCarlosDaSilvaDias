@@ -1,7 +1,7 @@
 
-# Tag 1.1 - Inicialização do npm e Configuração do `package.json`
+# Tag 1.0.1 - Inicialização do npm e Configuração do `package.json`
 
-Nesta etapa, damos continuidade ao desenvolvimento da aplicação iniciado na **Tag 1.0**, avançando com a configuração do npm e a descrição inicial do projeto no arquivo `package.json`. Além disso, configuramos a persistência de dados para serviços e dependências locais.
+Nesta etapa, damos continuidade ao desenvolvimento da aplicação iniciado na **Tag 1.0.1**, avançando com a configuração do npm e a descrição inicial do projeto no arquivo `package.json`. Além disso, configuramos a persistência de dados para serviços e dependências locais.
 
 ## Configurações Realizadas
 
@@ -58,7 +58,7 @@ Na pasta node modules tem um arquivo info.md que contem o escopo acima. Na aplic
 
 ## Descrição
 
-Esta é a **Tag 1.0**, que marca a criação do ambiente inicial do projeto, utilizando **Docker** para a construção de uma aplicação **React Native**. O ambiente integra os serviços **Node.js** e **JDK**, permitindo o desenvolvimento de forma isolada e controlada.
+Esta é a **Tag 1.0.0**, que marca a criação do ambiente inicial do projeto, utilizando **Docker** para a construção de uma aplicação **React Native**. O ambiente integra os serviços **Node.js** e **JDK**, permitindo o desenvolvimento de forma isolada e controlada.
 
 Neste marco, o projeto já possui a estrutura básica configurada, sendo necessário iniciar a instalação dos componentes adicionais para a evolução do sistema.
 
@@ -106,4 +106,4 @@ Após a criação do `package.json`, o ambiente estará configurado para a insta
 
 ## Evolução do projeto
 
-Esta **Tag 1.0** representa o ponto de partida. A partir deste momento, o projeto será evoluído para novas versões (como a **Tag 1.1**), com a adição de novas funcionalidades e dependências.
+Esta **Tag 1.0** representa o ponto de partida. A partir deste momento, o projeto será evoluído para novas versões (como a **Tag 1.0.1**), com a adição de novas funcionalidades e dependências.
