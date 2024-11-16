@@ -48,7 +48,7 @@ A **Tag 1.0.1** marca a consolidação da base para a instalação de biblioteca
 
 Ao subir o container, o volume foi configurado e criou a pasta `node_modules`. No entanto, essa pasta estará vazia inicialmente, pois o comando `npm init` foi executado e o arquivo `package.json` foi criado, mas ainda não há módulos instalados.
 
-A pasta `node_modules` só passará a conter as dependências e os módulos necessários quando o serviço for iniciado, o que ocorrerá na **Tag 1.0.3**, com a execução de novos comandos para instalar as dependências e inicializar os pacotes necessários ao projeto.
+A pasta `node_modules` só passará a conter as dependências e os módulos necessários quando o serviço for iniciado, o que ocorrerá na **Tag 1.0.2**, com a execução de novos comandos para instalar as dependências e inicializar os pacotes necessários ao projeto.
 
 Na pasta node modules tem um arquivo info.md que contem o escopo acima. Na aplicação tag 1.0.3 ela não estará, pois foi criado para manter a pasta node_modules para manter a didática da evolução.
 
@@ -106,4 +106,4 @@ Após a criação do `package.json`, o ambiente estará configurado para a insta
 
 ## Evolução do projeto
 
-Esta **Tag 1.0** representa o ponto de partida. A partir deste momento, o projeto será evoluído para novas versões (como a **Tag 1.0.1**), com a adição de novas funcionalidades e dependências.
+Esta **Tag 1.0.0** representa o ponto de partida. A partir deste momento, o projeto será evoluído para novas versões (como a **Tag 1.0.1**), com a adição de novas funcionalidades e dependências.
