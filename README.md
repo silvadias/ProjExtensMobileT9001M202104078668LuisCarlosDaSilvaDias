@@ -1,4 +1,24 @@
 
+# Tag 1.0.2 - npm install
+
+Nesta Tag de evolução do projeto, o primeiro passo foi utilizar o comando `npm install`.
+
+Este comando adicionou dois arquivos na estrutura de pastas, ambos chamados `package-lock.json`. Porém, um foi adicionado na estrutura da pasta `node_modules` e o outro na raiz do projeto, junto com o `package.json`.
+
+Desta forma, o primeiro arquivo a persistir na pasta `node_modules` foi adicionado, mantendo a pasta no host, nos quais serão instalados os pacotes e serviços que funcionam como espelho no container.
+
+Além disso, também foi realizada a atualização das tags em todos os arquivos com sufixo `package`, onde o valor da versão `1.0.1` foi substituído por `1.0.2`, uma vez que este arquivo é a evolução da tag `1.0.1`.
+
+### O que faz o arquivo `package-lock.json` após o `npm install`?
+
+O arquivo `package-lock.json` é criado automaticamente quando o comando `npm install` é executado. Ele serve para registrar as versões exatas das dependências que foram instaladas. O objetivo principal do `package-lock.json` é garantir que, em futuras instalações ou em outras máquinas, as mesmas versões das dependências serão instaladas, assegurando consistência no ambiente de desenvolvimento. Esse arquivo não deve ser editado manualmente, pois ele é gerado automaticamente pelo npm e deve ser mantido no ...
+
+### Próximos Passos
+
+A próxima etapa será a utilização do **Expo**, que será abordada na **Tag 1.2.3**. Esta etapa irá complementar o processo de configuração do ambiente para desenvolvimento em React Native, iniciando com a instalação do Expo e preparando o projeto para consumir e utilizar funcionalidades nativas de dispositivos móveis.
+
+---
+
 # Tag 1.0.1 - Inicialização do npm e Configuração do `package.json`
 
 Nesta etapa, damos continuidade ao desenvolvimento da aplicação iniciado na **Tag 1.0.0**, avançando com a configuração do npm e a descrição inicial do projeto no arquivo `package.json`. Além disso, configuramos a persistência de dados para serviços e dependências locais.
