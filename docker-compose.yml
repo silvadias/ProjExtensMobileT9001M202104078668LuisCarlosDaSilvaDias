@@ -15,3 +15,5 @@ services:  # Serviços que serão orquestrados
       - 8081:8081    # Porta padrão do servidor React Native (Expo)
     networks:
       - appExpo  # Define que o contêiner estará na rede 'appExpo'
+    command: >  # Comando para manter o contêiner rodando
+      sh -c "tail -f /dev/null"
