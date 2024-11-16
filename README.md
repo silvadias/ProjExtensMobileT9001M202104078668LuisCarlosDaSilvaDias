@@ -1,12 +1,12 @@
 
 # Tag 1.0.1 - Inicialização do npm e Configuração do `package.json`
 
-Nesta etapa, damos continuidade ao desenvolvimento da aplicação iniciado na **Tag 1.0.1**, avançando com a configuração do npm e a descrição inicial do projeto no arquivo `package.json`. Além disso, configuramos a persistência de dados para serviços e dependências locais.
+Nesta etapa, damos continuidade ao desenvolvimento da aplicação iniciado na **Tag 1.0.0**, avançando com a configuração do npm e a descrição inicial do projeto no arquivo `package.json`. Além disso, configuramos a persistência de dados para serviços e dependências locais.
 
 ## Configurações Realizadas
 
 ### 1. Inicialização do Ambiente Docker
-- Os serviços Docker foram iniciados, criando o volume **`node_modules`**, que garante a persistência das dependências instaladas localmente.
+- Os serviços Docker foram iniciados, criando o volume **`node_modules`**, que garante a persistência das dependências instaladas localmente, nesta faze ela foi criada vazia.
 - O arquivo `docker-compose.yml` foi configurado para que a pasta **`app`** seja montada dentro do container.
 
 ### 2. Acesso ao Container
@@ -50,7 +50,7 @@ Ao subir o container, o volume foi configurado e criou a pasta `node_modules`. N
 
 A pasta `node_modules` só passará a conter as dependências e os módulos necessários quando o serviço for iniciado, o que ocorrerá na **Tag 1.0.2**, com a execução de novos comandos para instalar as dependências e inicializar os pacotes necessários ao projeto.
 
-Na pasta node modules tem um arquivo info.md que contem o escopo acima. Na aplicação tag 1.0.3 ela não estará, pois foi criado para manter a pasta node_modules para manter a didática da evolução.
+Na pasta node modules tem um arquivo info.md que contem o escopo acima. Na aplicação tag 1.0.2 ela não estará, pois foi criado para manter a pasta node_modules para manter a didática da evolução.
 
 ---
 
@@ -71,6 +71,7 @@ Para interagir com os containers e começar o trabalho no projeto, siga os segui
 Para acessar o container onde o serviço **Node.js** está em execução, utilize o seguinte comando:
 
 ```bash
+sudo docker-compose up -d
 sudo docker exec -it nodeExpo sh
 ```
 
