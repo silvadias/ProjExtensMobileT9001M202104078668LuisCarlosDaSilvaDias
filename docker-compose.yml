@@ -23,3 +23,4 @@ jdk:  # Serviço que usa a imagem OpenJDK
     working_dir: /app
     networks:
       - appExpo  # Define que o contêiner estará na rede 'appExpo'
+    command: tail -f /dev/null  # Mantém o contêiner JDK em execução sem fazer nada
