@@ -24,3 +24,10 @@ jdk:  # Serviço que usa a imagem OpenJDK
     networks:
       - appExpo  # Define que o contêiner estará na rede 'appExpo'
     command: tail -f /dev/null  # Mantém o contêiner JDK em execução sem fazer nada
+
+networks:  # Definição das redes Docker
+  appExpo:  # Rede chamada 'appExpo'
+    driver: bridge  # Usando o driver padrão 'bridge' para comunicação entre contêineres
+   networks:
+      - appExpo  # Define que o contêiner estará na rede 'appExpo'
+      
