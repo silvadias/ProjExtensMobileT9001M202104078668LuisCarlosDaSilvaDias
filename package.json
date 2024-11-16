@@ -12,9 +12,10 @@
     "url": "git+https://github.com/silvadias/ProjExtensMobileT9001M202104078668LuisCarlosDaSilvaDias.git"
   },
   "keywords": [
-    "Inicial",
-    "environment",
-    "react"
+    "extensao",
+    "app",
+    "estacio",
+    "react-native"
   ],
   "author": "Luis Carlos da Silva Dias",
   "license": "SEE LICENSE IN LICENSE",
