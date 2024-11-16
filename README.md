@@ -11,7 +11,7 @@ Além disso, também foi realizada a atualização das tags em todos os arquivos
 
 ### O que faz o arquivo `package-lock.json` após o `npm install`?
 
-O arquivo `package-lock.json` é criado automaticamente quando o comando `npm install` é executado. Ele serve para registrar as versões exatas das dependências que foram instaladas. O objetivo principal do `package-lock.json` é garantir que, em futuras instalações ou em outras máquinas, as mesmas versões das dependências serão instaladas, assegurando consistência no ambiente de desenvolvimento. Esse arquivo não deve ser editado manualmente, pois ele é gerado automaticamente pelo npm e deve ser mantido no ...
+O arquivo `package-lock.json` é criado automaticamente quando o comando `npm install` é executado. Ele serve para registrar as versões exatas das dependências que foram instaladas. O objetivo principal do `package-lock.json` é garantir que, em futuras instalações ou em outras máquinas, as mesmas versões das dependências serão instaladas, assegurando consistência no ambiente de desenvolvimento. Esse arquivo não deve ser editado manualmente, pois ele é gerado automaticamente pelo npm e deve ser mantido.
 
 ### Próximos Passos
 
