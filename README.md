@@ -1,4 +1,162 @@
 
+# Tag 1.0.3-expo - Relatório de Instalação  
+
+## Instalação do Expo
+O primeiro passo foi executar o comando para instalar o **Expo**:
+```bash
+npm install expo --save-dev
+```
+
+### Resultado da Instalação
+Ao executar o comando, o seguinte resultado foi exibido:
+
+```bash
+npm WARN deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm WARN deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+npm WARN deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm WARN deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+
+added 871 packages, and audited 872 packages in 2m
+
+72 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+```
+
+---
+
+## Avisos e Pacotes Depreciados
+Durante a instalação, foram identificadas mensagens de **"deprecated"**, indicando pacotes que estão descontinuados ou que não serão suportados futuramente.
+
+### Verificar Pacotes Depreciados
+Use o comando abaixo para verificar detalhes de um pacote específico:
+```bash
+npm view <nome-do-pacote>
+```
+
+### Instalar Versões Específicas
+É possível instalar versões não depreciadas de pacotes. Use o seguinte comando para selecionar uma versão específica:
+```bash
+npm install <nome-do-pacote>@<versão>
+```
+
+### Listar Versões Disponíveis
+Para listar todas as versões de um pacote, execute:
+```bash
+npm show <nome-do-pacote> versions
+```
+
+---
+
+## Configurando o `package.json`
+Você pode evitar versões problemáticas configurando o intervalo de versões no `package.json`. Por exemplo:
+
+```json
+"dependencies": {
+  "pacote": "^1.0.0"
+}
+```
+- **`^1.0.0`**: Permite atualizações não disruptivas dentro da mesma versão principal (1.x.x).
+- Use intervalos mais restritivos se necessário:
+  ```json
+  "dependencies": {
+    "pacote": ">=1.2.0 <2.0.0"
+  }
+  ```
+
+---
+
+## Automação com `npm audit`
+O comando `npm audit` ajuda a identificar pacotes desatualizados, inseguros ou depreciados:
+```bash
+npm audit
+```
+
+---
+
+## Gerenciamento de Dependências Transitivas
+Se um pacote depreciado for uma dependência transitiva (usado por outro pacote), use o recurso `overrides` no `package.json` para forçar o uso de uma versão compatível:
+```json
+"overrides": {
+  "<pacote-obsoleto>": "<nova-versão>"
+}
+```
+
+---
+
+### Saída
+```bash
+72 packages are looking for funding
+run `npm fund` for details
+```
+
+## Pacotes com Financiamento
+O comando `npm fund` lista pacotes que possuem iniciativas de financiamento, como doações ou subscrições:
+```bash
+npm fund
+```
+
+---
+
+## Estrutura do Projeto
+Após a instalação, a pasta `node_modules` foi populada com os pacotes e dependências necessárias. Além disso:
+- Foi criada a pasta `.gitignore` para evitar que a `node_modules` seja enviada ao repositório remoto, uma vez que:
+  - Contém inúmeros arquivos.
+  - Pode ser recriada localmente com base no `package.json` usando o comando:
+    ```bash
+    npm install
+    ```
+
+---
+
+## Execução no Contêiner Docker
+Para esta **Tag 1.0.3-expo**, o ambiente pode ser configurado dentro de um contêiner Docker. Use os seguintes comandos:
+
+### Acessar o contêiner:
+```bash
+sudo docker exec -it nodeExpo sh
+```
+
+### Instalar dependências no contêiner:
+```bash
+npm install
+```
+
+---
+
+## Conclusão
+Com os passos descritos acima, o ambiente está configurado para rodar o projeto Expo, garantindo que as dependências sejam gerenciadas de forma eficaz e que problemas com pacotes depreciados sejam minimizados ou resolvidos em nas próximas tags.
+
+### Observações
+
+Houve um conflito entre os arquivos `package.json` e `package-lock.json` após a instalação do Expo no projeto. O problema ocorreu porque o `npm install expo --save-dev` foi executado, mas as dependências foram registradas dentro da pasta `node_modules` e não atualizaram os arquivos `package.json` e `package-lock.json` na raiz do projeto.
+
+#### Passos para Resolver o Conflito
+
+1. **Deletar os arquivos `package.json` e `package-lock.json` na raiz**:
+   Para corrigir o problema, foi necessário deletar os arquivos `package.json` e `package-lock.json` que não foram atualizados dentro da pasta `app` do contêiner.
+
+2. **Reinicializar o `package.json`**:
+   Após a exclusão dos arquivos, o comando `npm install expo --save-dev` foi executado novamente. Isso, combinado com o comando `npm init`, gerou corretamente o arquivo `package.json` dentro da raiz do projeto, com as dependências do Expo configuradas.
+
+3. **Execução do comando `npm install`**:
+   Com o `package.json` corretamente gerado, foi executado o comando `npm install`. Esse comando então adicionou todas as dependências no arquivo `package-lock.json` na raiz, conforme esperado.
+
+#### Atualizações no Docker Compose (YML)
+
+Além dos ajustes no projeto, foi feito um ajuste no arquivo `docker-compose.yml`:
+
+- O comando `npm install` foi adicionado no serviço do contêiner. Isso garante que, ao subir o contêiner na versão `1.0.3`, todos os serviços do Expo sejam configurados corretamente.
+
+#### Expectativa
+
+Com essas modificações, espera-se que, ao iniciar o contêiner, a pasta `node_modules` seja populada com as dependências necessárias e, ao mesmo tempo, não seja rastreada pelo Git. Isso garante que as dependências locais estejam presentes dentro do contêiner sem impactar o repositório remoto.
+
+Agora, ao subir o contêiner, todas as dependências devem estar corretamente instaladas, e o projeto deve funcionar sem a necessidade de ajustes manuais adicionais.
+
+---
+
 # Tag 1.0.2 - npm install
 
 Nesta Tag de evolução do projeto, o primeiro passo foi utilizar o comando `npm install`.
