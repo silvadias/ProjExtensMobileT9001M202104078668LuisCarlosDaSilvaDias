@@ -1,7 +1,8 @@
 {
   "name": "projextensmobilet9001m202104078668luiscarlosdasilvadias",
   "main": "expo-router/entry",
-  "version": "1.0.0",
+  "version": "1.0.4",
+  "description": "Projeto de extensão acadêmica em React, desenvolvido no curso de Ciência da Computação da Estácio - Polo Centro Juiz de Fora. Este projeto, elaborado pelo aluno Luis Carlos da Silva Dias durante a disciplina Programação Para Dispositivos Móveis em Android, tem como objetivo explorar conceitos práticos de desenvolvimento mobile e integrar tecnologias modernas ao aprendizado acadêmico.",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -50,5 +51,21 @@
     "react-test-renderer": "18.3.1",
     "typescript": "^5.3.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvadias/ProjExtensMobileT9001M202104078668LuisCarlosDaSilvaDias.git"
+  },
+  "keywords": [
+    "extensao",
+    "app",
+    "estacio",
+    "react-native"
+  ],
+  "author": "Luis Carlos da Silva Dias",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/silvadias/ProjExtensMobileT9001M202104078668LuisCarlosDaSilvaDias/issues"
+  },
+  "homepage": "https://github.com/silvadias/ProjExtensMobileT9001M202104078668LuisCarlosDaSilvaDias#readme",
   "private": true
 }
