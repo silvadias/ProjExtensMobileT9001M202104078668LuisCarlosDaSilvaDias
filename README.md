@@ -3,6 +3,50 @@
 
 ---
 
+# Tag 1.0.5-expoCli
+
+## Tunnelamento para Visualização em Dispositivo Físico
+
+Nesta etapa, o foco é permitir a execução da aplicação em um dispositivo físico, utilizando o aplicativo **Expo Go**.
+
+### Pré-requisitos:
+1. Instale o aplicativo **Expo Go** no seu dispositivo físico:
+   - Disponível na Play Store (Android) ou App Store (iOS).
+2. Certifique-se de que o ambiente local já está configurado com a **Tag 1.0.4-expoCli**, conforme documentado anteriormente.
+
+### Passos para Iniciar o Tunnelamento:
+
+1. **Subir o Contêiner Docker:**
+   - Execute o comando abaixo para iniciar o contêiner do ambiente Node.js configurado:
+     ```bash
+     sudo docker-compose up -d
+     ```
+
+2. **Acessar o Contêiner:**
+   - Entre no contêiner ativo para realizar as configurações necessárias:
+     ```bash
+     sudo docker exec -it nodeExpo sh
+     ```
+
+3. **Instalar Dependências e Iniciar o Expo com Tunnelamento:**
+   - Dentro do contêiner, execute os seguintes comandos na ordem apresentada:
+     ```bash
+     npm install
+     npx expo start --tunnel
+     ```
+
+4. **Escanear o QR Code:**
+   - Após a execução do comando `npx expo start --tunnel`, será gerado um QR Code.
+   - Use o aplicativo **Expo Go** no seu dispositivo físico para escanear esse QR Code.
+   - A aplicação será carregada e estará pronta para uso no dispositivo.
+
+---
+
+## Considerações Finais:
+Este processo facilita a emulação e o teste da aplicação em dispositivos físicos, aproveitando a conectividade fornecida pelo tunnelamento do Expo. Certifique-se de que o dispositivo está conectado à mesma rede que o ambiente de desenvolvimento ou que o modo **Tunnel** foi corretamente selecionado para superar restrições de rede.
+
+---
+
 # Tag 1.0.4-expoCli
 
 Nesta etapa, o projeto foi reconfigurado, iniciando com a execução do comando `npm install expo-cli --save-dev` dentro do contêiner `nodeExpo`. A instalação local do `expo-cli` é recomendada pela React para garantir que as dependências e os serviços sejam gerenciados de forma isolada, evitando o uso de pacotes globais.
