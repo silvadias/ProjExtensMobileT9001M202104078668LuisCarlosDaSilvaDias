@@ -1,110 +1,123 @@
-# Prefácio
+# **Rascunho de Projeto - CubraAqui!**
 
-Apresento, por meio deste, um rascunho de projeto com a proposta de desenvolver uma solução inovadora para atender à demanda por cobertura de funções temporárias em empresas. O objetivo é, simultaneamente, criar novas oportunidades para profissionais que buscam trabalho temporário, alinhado às suas habilidades.
+## **Prefácio**
 
-Importante ressaltar que o desenvolvimento deste trabalho extensionista **não será cobrado**. A fase inicial e a implementação serão conduzidas como parte de um compromisso acadêmico, com o intuito de gerar um impacto positivo para empresas e profissionais envolvidos. Ao final dos trabalhos, será avaliada a necessidade de manter a solução ou arquivá-la.
+Apresento, por meio deste documento, um rascunho de projeto com a proposta de desenvolver uma solução inovadora para atender à demanda por cobertura de funções temporárias em empresas. O objetivo é criar novas oportunidades para profissionais que buscam trabalho temporário, alinhado às suas habilidades.
 
-Caso haja interesse no rascunho apresentado, solicitamos que empresas e profissionais manifestem seu interesse por meio do telefone **(32) 98887-8916** ou pelo e-mail acadêmico **202104078668@alunos.estacio.br**, enviando seus dados para formalização da parceria e participação na construção do escopo do trabalho. Será confeccionada uma carta de aceite e apresentação, estabelecendo os termos e compromissos acadêmicos com a Estácio. Este projeto faz parte de uma atividade extensionista regida pela **Lei nº 9.394/1996** (Lei de Diretrizes e Bases da Educação Nacional - LDB), que tem como objetivo aprimorar as habilidades do aluno no campo prático e na resolução de problemas reais, ao mesmo tempo em que contribui para resolver uma necessidade da sociedade, aproximando instituições de ensino com a comunidade local.
+Este projeto extensionista **não será cobrado**. Sua fase inicial e implementação serão conduzidas como parte de um compromisso acadêmico, visando impacto positivo tanto para empresas quanto para profissionais envolvidos. Ao final, será avaliada a necessidade de manter ou arquivar a solução.
 
-Abaixo os dados do aluno e da disciplina extensionista:
+Interessados devem entrar em contato pelo telefone **(32) 98887-8916** ou pelo e-mail acadêmico **202104078668@alunos.estacio.br**. Após formalização, será emitida uma carta de aceite e apresentação, estabelecendo os termos acadêmicos com a Estácio. Este projeto está em conformidade com a **Lei nº 9.394/1996** (LDB).
 
-- **Aluno**: Luis Carlos da Silva Dias  
-- **Instituição de Ensino**: Estácio - Polo Centro Juiz de Fora  
-- **Matrícula**: 202104078668  
-- **Turma**: 9001  
-- **E-mail**: silvadias.perfil@outlook.com  
-- **E-mail Acadêmico**: 202104078668@alunos.estacio.br  
-- **Contato**: (32) 98887-8916  
-- **Curso**: Ciência da Computação, Período de Conclusão  
-- **Disciplina**: Programação Para Dispositivos Móveis em Android  
-- **Repositório GitHub**: [ProjExtensMobileT9001M202104078668LuisCarlosDaSilvaDias](https://github.com/ProjExtensMobileT9001M202104078668LuisCarlosDaSilvaDias)
+### **Dados do Aluno e Disciplina Extensionista**
 
-Este projeto busca reunir empresas e profissionais em um esforço colaborativo, com o propósito de resolver um desafio comum e gerar impactos positivos tanto no mercado de trabalho quanto na operação das empresas. Ao aceitar a proposta, a empresa participará de visitas, telefonemas, e-mails e reuniões para entender suas necessidades e adaptar a solução ao seu modelo de negócios. Este trabalho extensionista é regulamentado pela **Lei nº 9.394/1996** (Lei de Diretrizes e Bases da Educação Nacional - LDB), que visa aprimorar as habilidades do aluno e atender às demandas da sociedade.
-
----
-
-# Rascunho de Projeto - **CubraAqui!**
-
-## **Objetivo**
-
-Desenvolver o aplicativo *CubraAqui!*, uma plataforma para conectar empresas que precisam de cobertura temporária de funcionários com profissionais disponíveis para trabalhos temporários. O objetivo é otimizar custos e criar novas oportunidades no mercado de trabalho.
+- **Aluno:** Luis Carlos da Silva Dias  
+- **Instituição:** Estácio - Polo Centro Juiz de Fora  
+- **Matrícula:** 202104078668  
+- **Turma:** 9001  
+- **E-mail:** silvadias.perfil@outlook.com  
+- **E-mail Acadêmico:** 202104078668@alunos.estacio.br  
+- **Contato:** (32) 98887-8916  
+- **Curso:** Ciência da Computação (Período de Conclusão)  
+- **Disciplina:** Programação Para Dispositivos Móveis em Android  
+- **Repositório GitHub:** [ProjExtensMobileT9001M202104078668LuisCarlosDaSilvaDias](https://github.com/ProjExtensMobileT9001M202104078668LuisCarlosDaSilvaDias)
 
 ---
 
-## **Eixos de Extensão e Pesquisa**
+## **1. Objetivo**
 
-- **Científico-Acadêmico**: Promover aprendizado e inovação dentro do ambiente acadêmico.  
-- **Empregabilidade**: Criar oportunidades de trabalho para profissionais temporários.  
-- **Empreendedorismo e Inovação**: Desenvolver soluções criativas para o mercado.  
-- **Sustentabilidade**: Gerar impacto social e econômico positivo.  
+Desenvolver o aplicativo **CubraAqui!**, uma plataforma que conecta empresas que necessitam de cobertura temporária de funcionários com profissionais disponíveis, otimizando recursos e promovendo oportunidades no mercado de trabalho.
 
 ---
 
-## **Público Envolvido**
+## **2. Problema Identificado**
 
-- **Empresas e Instituições**: Públicas e privadas, com necessidades de cobertura temporária.  
-- **Profissionais Ociosos**: Trabalhadores disponíveis para funções temporárias.  
-- **Comunidade Local**: Pessoas que buscam oportunidades temporárias.  
+Empresas, sejam públicas ou privadas, enfrentam dificuldades quando funcionários do quadro fixo se ausentam. As alternativas costumam envolver contratações temporárias informais, o que gera falta de organização, aumento de custos e processos ineficazes. Além disso, a busca por profissionais temporários frequentemente ocorre por meio de canais não estruturados, como grupos de mensagens.
 
 ---
 
-### **Problema Identificado**
+## **3. Oportunidade de Solução**
 
-Empresas que operam em autarquias, fundações, tanto públicas quanto privadas, enfrentam dificuldades quando há a ausência de um funcionário do quadro fixo. Nesse caso, precisam rapidamente contratar alguém para fazer a cobertura, sob pena de penalização financeira. Algumas empresas optam por contratar funcionários extras, mas isso se torna caro, especialmente quando esses funcionários ficam ociosos. Além disso, as empresas frequentemente recorrem a chamadas informais para verificar a disponibilidade de profissionais, utilizando canais básicos como grupos de conversa, que não oferecem organização adequada. Esses canais não registram nem classificam a disponibilidade e o interesse dos profissionais, tornando o processo ineficiente.
+Desenvolver uma plataforma digital eficiente que:
 
----
-
-## **Oportunidade de Solução**
-
-Desenvolver uma plataforma que conecte empresas com profissionais qualificados para coberturas temporárias, otimizando recursos, relatórios e gestão, além de criar novas oportunidades no mercado de trabalho.
-
----
-
-## **Objetivo do Projeto**
-
-Criar o aplicativo *CubraAqui!* para:
-
-- Conectar empresas que precisam de cobertura temporária com profissionais qualificados.  
-- Reduzir custos e aumentar a eficiência na cobertura do efetivo fixo faltante.  
-- Criar novas oportunidades de emprego para profissionais temporários.  
+- Conecte empresas a profissionais qualificados de maneira ágil.  
+- Organize e gerencie informações de forma clara.  
+- Reduza custos operacionais.  
+- Crie novas oportunidades de trabalho temporário.  
 
 ---
 
-## **Estrutura de Ações**
+## **4. Eixos de Extensão e Pesquisa**
 
-1. **Mobilização e Identificação de Necessidades**  
-   Formalizar a ideia e identificar empresas e profissionais com a necessidade de coberturas temporárias.  
-
-2. **Coleta e Organização de Dados**  
-   Levantar informações sobre as necessidades das empresas e dos profissionais disponíveis.  
-
-3. **Levantamento de Requisitos**  
-   Definir funcionalidades principais, como cadastro de empresas e profissionais e sistema de notificações.  
-
-4. **Planejamento e Validação da Solução**  
-   Criar modelos iniciais da plataforma e validar com empresas e profissionais através de testes.  
-
-5. **Desenvolvimento e Implementação**  
-   Desenvolver a plataforma utilizando as tecnologias mais adequadas e integrar funcionalidades de teste.  
-
-6. **Testes e Ajustes**  
-   Testar a plataforma com dados reais e ajustar conforme feedback.  
-
-7. **Treinamento e Avaliação**  
-   Capacitar os usuários para o uso da plataforma e coletar feedback para melhoria contínua.  
+- **Científico-Acadêmico:** Promover inovação no ambiente acadêmico.  
+- **Empregabilidade:** Facilitar oportunidades de trabalho temporário.  
+- **Empreendedorismo e Inovação:** Oferecer soluções criativas ao mercado.  
+- **Sustentabilidade:** Contribuir para impactos sociais e econômicos positivos.  
 
 ---
 
-## **Observações Finais**
+## **5. Público Envolvido**
 
-- Utilizar metodologias ágeis para garantir flexibilidade no desenvolvimento.  
-- Documentar as etapas para garantir o acompanhamento e colaboração de todos os envolvidos.  
+- **Empresas e Instituições:** Necessitam de cobertura temporária para funcionários.  
+- **Profissionais Disponíveis:** Buscam oportunidades de trabalho temporário.  
+- **Comunidade Local:** Beneficiada pelo aumento de oportunidades de emprego.  
 
 ---
 
-# Agradecimento
+## **6. Estrutura de Ações**
 
-Agradeço desde já o tempo dedicado à leitura deste documento. Faço votos de estima e consideração, na esperança de que possamos estabelecer uma parceria que traga benefícios mútuos para todos os envolvidos. Tenho confiança de que essa colaboração será um passo importante para o sucesso do projeto e para o impacto positivo que buscamos gerar. Estou à disposição para qualquer esclarecimento e para avançarmos juntos nesse propósito.
+1. **Mobilização e Identificação de Necessidades:**  
+   Identificar empresas e profissionais com demanda por trabalho temporário.  
 
-### **Att:** Luis Carlos da Silva Dias  
-Acadêmico em período de conclusão do curso de Ciência da Computação.
+2. **Coleta e Organização de Dados:**  
+   Levantar e organizar informações das necessidades e perfis dos envolvidos.  
+
+3. **Levantamento de Requisitos:**  
+   Definir funcionalidades essenciais, como cadastro de usuários e notificações.  
+
+4. **Planejamento e Validação da Solução:**  
+   Desenvolver protótipos iniciais e validar com os usuários-alvo.  
+
+5. **Desenvolvimento e Implementação:**  
+   Construir a plataforma utilizando tecnologias adequadas.  
+
+6. **Testes e Ajustes:**  
+   Testar com dados reais e refinar conforme feedback.  
+
+7. **Treinamento e Avaliação:**  
+   Capacitar usuários e coletar feedback para melhorias contínuas.  
+
+---
+
+## **7. Metodologia**
+
+O desenvolvimento será baseado em **metodologias ágeis**, garantindo flexibilidade, iteração contínua e entrega incremental. As etapas serão documentadas para acompanhamento e transparência do progresso.
+
+---
+
+## **8. Resultados Esperados**
+
+- Plataforma funcional conectando empresas e profissionais.  
+- Redução dos custos operacionais das empresas.  
+- Aumento da eficiência na contratação temporária.  
+- Maior visibilidade para profissionais temporários no mercado.  
+
+---
+
+## **9. Observações Finais**
+
+Este projeto visa aproximar o ambiente acadêmico do mercado de trabalho, solucionando um problema real com uma ferramenta eficiente e prática. Empresas e profissionais terão papel essencial durante o desenvolvimento, participando ativamente para garantir que a solução atenda às demandas específicas.
+
+---
+
+## **10. Agradecimento**
+
+Agradeço desde já o tempo dedicado à leitura deste documento. Espero que possamos estabelecer uma parceria produtiva, resultando em benefícios mútuos para todas as partes envolvidas.
+
+Estou à disposição para esclarecimentos adicionais e para avançarmos juntos nesse propósito.
+
+**Atenciosamente,**  
+**Luis Carlos da Silva Dias**  
+Acadêmico em Ciência da Computação, Período de Conclusão  
+Contato: **(32) 98887-8916**  
+E-mail: **202104078668@alunos.estacio.br**  
+Repositório GitHub: [ProjExtensMobileT9001M202104078668LuisCarlosDaSilvaDias](https://github.com/ProjExtensMobileT9001M202104078668LuisCarlosDaSilvaDias)
