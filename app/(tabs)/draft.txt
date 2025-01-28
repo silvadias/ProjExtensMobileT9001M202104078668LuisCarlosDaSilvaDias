@@ -1,0 +1,289 @@
+Foi aberto uma conta no ngrok e tem um token
+da o comando ngrok http 3000   -> passa o token não sei se authtoken + token da pagina ngrok
+npx ngrok http 3000 --authtoken 2sBjg9xzhEYXRNhrcYsGxkk86VC_7uXAxZCkXBFV
+
+
+exemplo de fluxo painel react native
+
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet, TextInput, Alert } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import axios from 'axios';
+
+const Stack = createStackNavigator();
+
+const CadastroInicial = ({ navigation }) => {
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleNext = async () => {
+    try {
+      const response = await axios.post('https://suaapi.com/cadastro', {
+        nome,
+        email,
+      });
+      Alert.alert('Sucesso', 'Cadastro inicial enviado!');
+      navigation.navigate('CadastroEndereco');
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível enviar os dados.');
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text>Nome:</Text>
+      <TextInput
+        style={styles.input}
+        value={nome}
+        onChangeText={setNome}
+        placeholder="Digite seu nome"
+      />
+      <Text>Email:</Text>
+      <TextInput
+        style={styles.input}
+        value={email}
+        onChangeText={setEmail}
+        placeholder="Digite seu email"
+      />
+      <Button title="Próximo" onPress={handleNext} />
+    </View>
+  );
+};
+
+const CadastroEndereco = ({ navigation }) => {
+  const [endereco, setEndereco] = useState('');
+
+  const handleNext = async () => {
+    try {
+      const response = await axios.post('https://suaapi.com/cadastro/endereco', {
+        endereco,
+      });
+      Alert.alert('Sucesso', 'Endereço cadastrado com sucesso!');
+      navigation.navigate('EscolhaTipo');
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível enviar o endereço.');
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text>Endereço:</Text>
+      <TextInput
+        style={styles.input}
+        value={endereco}
+        onChangeText={setEndereco}
+        placeholder="Digite seu endereço"
+      />
+      <Button title="Próximo" onPress={handleNext} />
+    </View>
+  );
+};
+
+const EscolhaTipo = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <Text>Escolha o tipo de conta:</Text>
+      <Button title="Usuário" onPress={() => navigation.navigate('CadastroUsuario')} />
+      <Button title="Empresa" onPress={() => navigation.navigate('CadastroEmpresa')} />
+    </View>
+  );
+};
+
+const CadastroUsuario = () => {
+  return (
+    <View style={styles.container}>
+      <Text>Cadastro de Usuário</Text>
+      {/* Adicione os campos específicos para usuário */}
+    </View>
+  );
+};
+
+const CadastroEmpresa = () => {
+  return (
+    <View style={styles.container}>
+      <Text>Cadastro de Empresa</Text>
+      {/* Adicione os campos específicos para empresa */}
+    </View>
+  );
+};
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="CadastroInicial">
+        <Stack.Screen name="CadastroInicial" component={CadastroInicial} options={{ title: 'Cadastro Inicial' }} />
+        <Stack.Screen name="CadastroEndereco" component={CadastroEndereco} options={{ title: 'Cadastro de Endereço' }} />
+        <Stack.Screen name="EscolhaTipo" component={EscolhaTipo} options={{ title: 'Escolha o Tipo' }} />
+        <Stack.Screen name="CadastroUsuario" component={CadastroUsuario} options={{ title: 'Cadastro de Usuário' }} />
+        <Stack.Screen name="CadastroEmpresa" component={CadastroEmpresa} options={{ title: 'Cadastro de Empresa' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 12,
+    paddingHorizontal: 8,
+  },
+});
+
+export default App;
+
+
+******************************************
+exemplo de código criar abas
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import axios from 'axios';
+
+const Stack = createStackNavigator();
+const Tab = createMaterialTopTabNavigator();
+
+const CadastroInicial = ({ navigation }) => {
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleNext = async () => {
+    try {
+      const response = await axios.post('https://suaapi.com/cadastro', {
+        nome,
+        email,
+      });
+      Alert.alert('Sucesso', 'Cadastro inicial enviado!');
+      navigation.navigate('CadastroEndereco');
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível enviar os dados.');
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text>Nome:</Text>
+      <TextInput
+        style={styles.input}
+        value={nome}
+        onChangeText={setNome}
+        placeholder="Digite seu nome"
+      />
+      <Text>Email:</Text>
+      <TextInput
+        style={styles.input}
+        value={email}
+        onChangeText={setEmail}
+        placeholder="Digite seu email"
+      />
+      <Text onPress={handleNext} style={styles.button}>Próximo</Text>
+    </View>
+  );
+};
+
+const CadastroEndereco = ({ navigation }) => {
+  const [endereco, setEndereco] = useState('');
+
+  const handleNext = async () => {
+    try {
+      const response = await axios.post('https://suaapi.com/cadastro/endereco', {
+        endereco,
+      });
+      Alert.alert('Sucesso', 'Endereço cadastrado com sucesso!');
+      navigation.navigate('EscolhaTipo');
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível enviar o endereço.');
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text>Endereço:</Text>
+      <TextInput
+        style={styles.input}
+        value={endereco}
+        onChangeText={setEndereco}
+        placeholder="Digite seu endereço"
+      />
+      <Text onPress={handleNext} style={styles.button}>Próximo</Text>
+    </View>
+  );
+};
+
+const CadastroUsuario = () => (
+  <View style={styles.container}>
+    <Text>Cadastro de Usuário</Text>
+    {/* Adicione os campos específicos para usuário */}
+  </View>
+);
+
+const CadastroEmpresa = () => (
+  <View style={styles.container}>
+    <Text>Cadastro de Empresa</Text>
+    {/* Adicione os campos específicos para empresa */}
+  </View>
+);
+
+const EscolhaTipo = () => (
+  <Tab.Navigator>
+    <Tab.Screen name="Usuário" component={CadastroUsuario} />
+    <Tab.Screen name="Empresa" component={CadastroEmpresa} />
+  </Tab.Navigator>
+);
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="CadastroInicial">
+        <Stack.Screen name="CadastroInicial" component={CadastroInicial} options={{ title: 'Cadastro Inicial' }} />
+        <Stack.Screen name="CadastroEndereco" component={CadastroEndereco} options={{ title: 'Cadastro de Endereço' }} />
+        <Stack.Screen name="EscolhaTipo" component={EscolhaTipo} options={{ title: 'Escolha o Tipo' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 12,
+    paddingHorizontal: 8,
+  },
+  button: {
+    color: 'blue',
+    textAlign: 'center',
+    marginTop: 10,
+  },
+});
+
+export default App;
+
+
+justifyContent
+"expo-router": "~4.0.6",
+
+"compilerOptions": {
+    "types": [
+      "react",
+      "react-dom"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  }

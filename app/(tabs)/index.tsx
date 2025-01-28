@@ -1,43 +1,77 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import { View, Text, TextInput, Button, Alert, StyleSheet } from "react-native";
+import authService from "../../services/authServices"; // Certifique-se de que está apontando para o caminho correto
+import errorHandler from "../../services/errorHandle";
 
-export default function App() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const LoginScreen = () => {
+  const [cpf, setCpf] = useState(""); // Alterado para string
+  const [senha, setPassword] = useState(""); // Alterado para string
+  const [loading, setLoading] = useState(false); // Estado para o botão de carregamento
 
-  useEffect(() => {
-    // Função assíncrona dentro do useEffect
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://172.17.0.1:3000/api/consultar/lista/usuario');
-        
-        // Verificando se os dados da resposta são válidos
-        if (response && response.data) {
-          console.log(response.data);
-          setData(response.data); // Atualiza o estado com os dados recebidos
-        } else {
-          throw new Error('Resposta vazia.');
-        }
-      } catch (error) {
-        // Erro gerado na requisição ou no processamento dos dados
-        //setError(error.message || 'Erro ao carregar dados.');
-        console.error('Erro na requisição:', error); // Loga o erro completo para depuração
-      } finally {
-        setLoading(false); // Finaliza o carregamento, independentemente do sucesso ou falha
-      }
-    };
-
-    fetchData(); // Chama a função assíncrona no momento do carregamento
-  }, []); // Executa apenas uma vez, quando o componente for montado
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{JSON.stringify(error, null, 2)}</div>;
+  const handleLogin = async () => {
+    try {
+      setLoading(true); // Ativa o estado de carregamento
+      const userData = await authService.Userlogin(cpf, senha); // Faz a chamada para o serviço de autenticação
+      setLoading(false); // Desativa o estado de carregamento
+      
+      // Mostra uma mensagem de sucesso ou navega para outra tela
+      Alert.alert("Login realizado com sucesso!", `Bem-vindo, ${userData.name}`);
+    } catch (error) {
+      setLoading(false); // Desativa o estado de carregamento em caso de erro
+      errorHandler(error); // Tratar o erro com o handler centralizado
+    }
+  };
 
   return (
-    <div>
-      <h1>Lista de Usuários</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre> {/* Exibe os dados carregados */}
-    </div>
+    <View style={styles.container}>
+      <Text style={styles.title}>Login</Text>
+      
+      <TextInput
+        style={styles.input}
+        placeholder="CPF"
+        keyboardType="numeric"
+        value={cpf}
+        onChangeText={setCpf}
+      />
+      
+      <TextInput
+        style={styles.input}
+        placeholder="Senha"
+        keyboardType="numeric"
+        secureTextEntry
+        value={senha}
+        onChangeText={setPassword}
+      />
+      
+      <Button
+        title={loading ? "Carregando..." : "Entrar"}
+        onPress={handleLogin}
+        disabled={loading} // Desabilita o botão enquanto está carregando
+      />
+    </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 20,
+    backgroundColor: "#fff",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+  },
+});
+
+export default LoginScreen;
