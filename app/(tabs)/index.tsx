@@ -10,7 +10,7 @@ export default function App() {
     // Função assíncrona dentro do useEffect
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://172.17.0.1:3000/api/consultar/lista/usuario');
+        const response = await axios.get('https://76d8-152-255-121-236.ngrok-free.app/api/consultar/lista/usuario');
         
         // Verificando se os dados da resposta são válidos
         if (response && response.data) {
