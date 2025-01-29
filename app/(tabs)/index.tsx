@@ -1,43 +1,88 @@
 import React, { useState, useEffect } from 'react';
+import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
-export default function App() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+// Tipagem para os dados do usuário conforme a resposta da API
+interface Usuario {
+  id: number;
+  cpf: string;
+  nomeCompleto: string;
+  email: string;
+  senha: string;
+  createdAt: string;
+  updatedAt: string;
+  idUsuario: number | null;
+}
+
+const UserList: React.FC = () => {
+  const [data, setData] = useState<Usuario[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Função assíncrona dentro do useEffect
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://76d8-152-255-121-236.ngrok-free.app/api/consultar/lista/usuario');
-        
-        // Verificando se os dados da resposta são válidos
-        if (response && response.data) {
-          console.log(response.data);
+        const response = await axios.get(
+          'https://dbe0-200-216-125-172.ngrok-free.app/api/consultar/lista/usuario'
+        );
+        if (response.data) {
           setData(response.data); // Atualiza o estado com os dados recebidos
         } else {
-          throw new Error('Resposta vazia.');
+          setError('Nenhum dado encontrado');
         }
-      } catch (error) {
-        // Erro gerado na requisição ou no processamento dos dados
-        //setError(error.message || 'Erro ao carregar dados.');
-        console.error('Erro na requisição:', error); // Loga o erro completo para depuração
+      } catch (err) {
+        setError('Erro ao carregar os dados');
+        console.error('Erro na requisição:', err);
       } finally {
-        setLoading(false); // Finaliza o carregamento, independentemente do sucesso ou falha
+        setLoading(false);
       }
     };
 
-    fetchData(); // Chama a função assíncrona no momento do carregamento
-  }, []); // Executa apenas uma vez, quando o componente for montado
+    fetchData();
+  }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{JSON.stringify(error, null, 2)}</div>;
+  const renderItem = ({ item }: { item: Usuario }) => (
+    <View
+      style={{
+        marginBottom: 10,
+        padding: 10,
+        backgroundColor: '#f0f0f0',
+        borderRadius: 5,
+      }}
+    >
+      <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+        Nome Completo: {item.nomeCompleto}
+      </Text>
+      <Text>Email: {item.email}</Text>
+      <Text>CPF: {item.cpf}</Text>
+      <Text>Data de Criação: {new Date(item.createdAt).toLocaleString()}</Text>
+      <Text>Data de Atualização: {new Date(item.updatedAt).toLocaleString()}</Text>
+      <Text>ID do Usuário: {item.idUsuario ?? 'Não disponível'}</Text>
+    </View>
+  );
+
+  const keyExtractor = (item: Usuario) => {
+    // Verifique se 'id' está presente, caso contrário, use um valor padrão (por exemplo, '0' ou 'defaultId')
+    return item.id ? item.id.toString() : 'defaultId';
+  };
+
+  if (loading) return <ActivityIndicator size="large" color="#0000ff" />;
+  if (error) return <Text>{error}</Text>;
 
   return (
-    <div>
-      <h1>Lista de Usuários</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre> {/* Exibe os dados carregados */}
-    </div>
+    <View style={{ padding: 20 }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>
+        Lista de Usuários
+      </Text>
+
+      {/* A renderização da lista deve funcionar na web e no celular */}
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+      />
+    </View>
   );
-}
+};
+
+export default UserList;
